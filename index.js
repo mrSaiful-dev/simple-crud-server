@@ -35,12 +35,14 @@ async function run() {
     const database = client.db("userDatabase");
     const usersCollection = database.collection("users");
 
-
+// for fetch data from database 
     app.get('/users', async(req,res) => {
       const cursor = usersCollection.find();
       const result = await cursor.toArray();
       res.send(result)
     })
+
+    
 
    // add to database 
     app.post('/users', async(req,res)=>{
